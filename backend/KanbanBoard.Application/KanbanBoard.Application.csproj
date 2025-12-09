@@ -5,15 +5,16 @@
         <ImplicitUsings>enable</ImplicitUsings>
         <Nullable>enable</Nullable>
         <TreatWarningsAsErrors>True</TreatWarningsAsErrors>
-        
+
     </PropertyGroup>
 
     <ItemGroup>
-      <PackageReference Include="Microsoft.EntityFrameworkCore" Version="10.0.0" />
+        <PackageReference Include="FluentValidation.DependencyInjectionExtensions" Version="12.1.1"/>
+        <PackageReference Include="Microsoft.EntityFrameworkCore" Version="10.0.0"/>
     </ItemGroup>
 
     <ItemGroup>
-      <ProjectReference Include="..\KanbanBoard.Domain\KanbanBoard.Domain.csproj" />
+        <ProjectReference Include="..\KanbanBoard.Domain\KanbanBoard.Domain.csproj"/>
     </ItemGroup>
 
 </Project>

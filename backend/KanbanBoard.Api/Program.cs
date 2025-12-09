@@ -1,18 +1,20 @@
+using KanbanBoard.Api.Endpoints;
+using KanbanBoard.Application;
 using KanbanBoard.Infrastructure;
 
 var builder = WebApplication.CreateBuilder(args);
 
-// Add services to the container.
-
-builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
-builder.Services.AddInfrastructure(builder.Configuration);
+builder.Services
+    .AddInfrastructure(builder.Configuration)
+    .AddApplication();
+
+builder.Services.AddAuthorization();
 
 var app = builder.Build();
 
-// Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
 {
     app.UseSwagger();
@@ -23,6 +25,6 @@ app.UseHttpsRedirection();
 
 app.UseAuthorization();
 
-app.MapControllers();
+app.MapBoardEndpoints();
 
 app.Run();
